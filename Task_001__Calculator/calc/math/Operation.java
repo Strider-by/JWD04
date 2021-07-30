@@ -32,9 +32,9 @@ public enum Operation {
             DIVISION.paramsCheck,
             BigDecimal::remainder),
     
-    EXPONENTIATION("exponentiation", "^", "power can be in range of [0: 999999999]",
+    EXPONENTIATION("exponentiation", "^", "power can be in range of [0, 999999999]",
             (val, power) -> {
-                // checking if power is in range of [0: 999999999]
+                // checking if power is in range of [0, 999999999]
                 boolean powFitsTheBounds = BigDecimalMath.canBeTakenAsPow(power);
                 // checking for value and power not to be 0 simultaneously
                 boolean doubleZeroCheckPassed = val.compareTo(BigDecimal.ZERO) != 0
