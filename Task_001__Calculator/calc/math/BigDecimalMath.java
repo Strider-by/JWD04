@@ -43,7 +43,7 @@ public class BigDecimalMath
         // checking if the value fits Integer values range 
         BigDecimal upperBound = BigDecimal.valueOf(Integer.MAX_VALUE);
         BigDecimal lowerBound = BigDecimal.valueOf(Integer.MIN_VALUE);
-        return (value.compareTo(upperBound) < 0 && value.compareTo(lowerBound) > 0);
+        return (value.compareTo(upperBound) <= 0 && value.compareTo(lowerBound) >= 0);
     }
     
 }
