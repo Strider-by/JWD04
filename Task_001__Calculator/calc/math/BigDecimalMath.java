@@ -11,10 +11,10 @@ public class BigDecimalMath
     
     public static BigDecimal pow(BigDecimal x, BigDecimal y) {
         // due to core Java BigDecimal implementation limits, BigDecimal.pow(...) method 
-        // accepts only int value in range of [0: 999999999] as power parameter
+        // accepts only int value in range of [0, 999999999] as power parameter
 
         if(!canBeTakenAsPow(y)) {
-            throw new ArithmeticException("The power parameter should be in range of [0: 999999999]");
+            throw new ArithmeticException("The power parameter should be in range of [0, 999999999]");
         }
 
         try {
