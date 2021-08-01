@@ -45,7 +45,7 @@ public enum Operation {
             BigDecimalMath::pow),
     
     ROOT_EXTRACTION("root extraction (approximate calculation)", "root", "",
-            (x, y) -> true, // no restrictions
+            BigDecimalMath::rootCanBeTaken,
             BigDecimalMath::root);
 
     
