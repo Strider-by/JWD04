@@ -34,10 +34,8 @@ public class BigDecimalMath
     }
     
     public static boolean rootCanBeTaken(BigDecimal value, BigDecimal pow) {
-        double rootExtractionResult = Math.pow(value.doubleValue(), 1 / pow.doubleValue());
-        return rootExtractionResult != Double.POSITIVE_INFINITY
-                &&
-                rootExtractionResult != Double.NEGATIVE_INFINITY;
+        return Double.isFinite(value.doubleValue())
+                && Double.isFinite(pow.doubleValue());
     }
     
     public static BigDecimal root(BigDecimal value, BigDecimal pow) {
