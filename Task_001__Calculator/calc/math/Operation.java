@@ -22,7 +22,8 @@ public enum Operation {
     
     DIVISION("division", "/", "diveder can not be equal to 0",
             (x, y) -> y.compareTo(BigDecimal.ZERO) != 0,
-            BigDecimal::divide),
+            // scale is set to avoid non-terminating decimal expansion
+            (x, y) -> x.divide(y, 20, RoundingMode.HALF_UP)), 
     
     INTEGER_DIVISION("integer division", "//", DIVISION.errorMsg,
             DIVISION.paramsCheck,
