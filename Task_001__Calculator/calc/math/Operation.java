@@ -42,7 +42,11 @@ public enum Operation {
                 
                 return powFitsTheBounds && doubleZeroCheckPassed;
             },
-            BigDecimalMath::pow);
+            BigDecimalMath::pow),
+    
+    ROOT_EXTRACTION("root extraction (approximate calculation)", "root", "",
+            (x, y) -> true, // no restrictions
+            BigDecimalMath::root);
 
     
     public final String name;
