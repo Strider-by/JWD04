@@ -20,7 +20,7 @@ public enum Operation {
             (x, y) -> true, // no restrictions
             BigDecimal::multiply),
     
-    DIVISION("division", "/", "diveder can not be equal to 0",
+    DIVISION("division", "/", "divider can not be equal to 0",
             (x, y) -> y.compareTo(BigDecimal.ZERO) != 0,
             // scale is set to avoid non-terminating decimal expansion
             (x, y) -> x.divide(y, 20, RoundingMode.HALF_UP)), 
