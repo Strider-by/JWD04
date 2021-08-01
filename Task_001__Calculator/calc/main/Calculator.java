@@ -20,6 +20,8 @@ public class Calculator {
     private static final String AVAILIBLE_OPERATIONS_HELP_LIST;
     private static final String AVAILIBLE_COMMANDS_HELP_LIST;
     private static final String DELIMETER = "------------------------------------------------------------------------";
+    // used to automatically give needed space for operation aliases in help block
+    private static final int OPERATION_MAX_ALIAS_LENGTH;
     
     
     BigDecimal operand1 = null;
@@ -48,8 +50,14 @@ public class Calculator {
                                 },
                                 LinkedHashMap::new));
         
+        OPERATION_MAX_ALIAS_LENGTH = Arrays.stream(Operation.values())
+                .mapToInt(operator -> operator.alias.length())
+                .max()
+                .orElse(0);
+        
         AVAILIBLE_OPERATIONS_HELP_LIST = Arrays.stream(Operation.values())
-                        .map(operation -> String.format("  %-2s %s", operation.alias, operation.name))
+                        .map(operation -> String.format("  %-" + OPERATION_MAX_ALIAS_LENGTH + "s %s", 
+                                operation.alias, operation.name))
                         .reduce((acc, newLine) -> acc + "\n" + newLine)
                         .orElse("---");
         
