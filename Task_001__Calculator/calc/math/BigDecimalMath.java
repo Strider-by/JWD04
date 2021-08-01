@@ -33,6 +33,13 @@ public class BigDecimalMath
         return (value.compareTo(upperBound) <= 0 && value.compareTo(lowerBound) >= 0);
     }
     
+    public static BigDecimal root(BigDecimal value, BigDecimal pow) {
+        BigDecimal result = BigDecimal.valueOf(
+                Math.pow(value.doubleValue(), 1 / pow.doubleValue()));
+        
+        return result;
+    }
+    
     public static boolean isIntegerConvertable(BigDecimal value) {
         // checking if there is fractional part
         BigDecimal intPart = value.setScale(0, RoundingMode.DOWN);
